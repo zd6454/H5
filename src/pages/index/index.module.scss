@@ -1,0 +1,118 @@
+.contain{
+  height: 100vh;
+  :global{
+    .taro-video {
+      height: 100vh;
+    }
+    .taro-video-bar{
+      height:0;
+    }
+  }
+}
+.image{
+  width:100vw;
+  height:100vh;
+  //animation: playImage 2s  ease-in-out;
+}
+@keyframes playImage {
+    0%{
+      transform: scale(2, 2);
+    }
+  100%{
+    transform: scale(1, 1);
+    transition:transform 2s ease-in-out;
+  }
+}
+
+.clickImage{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.clickImage6{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:0;
+  right: 0;
+  margin: auto;
+}
+.clickImage7{
+  position: fixed;
+  width: 250px;
+  height: 350px;
+  bottom:0;
+  right: 140px;
+}
+.clickImage8{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  top:20px;
+  right: 80px;
+}
+.clickImage9{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:0;
+  right: 0;
+}
+.input{
+  position: absolute;
+  z-index: 10;
+  width:150px;
+  height: 20px;
+  left:50%;
+  top: 35%;
+  font-size: 18px;
+}
+.comfirm{
+  position: fixed;
+  width:25px;
+  z-index: 10;
+}
+.name{
+  position: absolute;
+  bottom:17%;
+  left:20%;
+  font-size: 18px;
+}
+.clickImage15{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:30%;
+  right: 40px;
+}
+.clickImage17{
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  top:0;
+  right: 60px;
+}
+.name18{
+  position: absolute;
+  bottom:18.2%;
+  left:13%;
+  font-size: 18px;
+}
+.clickImage21{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  top:17%;
+  right: 6%;
+}
+.clickImage23{
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  top:17%;
+  right: 6%;
+}
