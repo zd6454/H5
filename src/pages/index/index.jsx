@@ -45,12 +45,16 @@ export default class Index extends Component {
     play:indexOne,
     name:'123',
   };
+
+
   componentWillMount () {
 
   }
 
   componentDidMount () {
-
+    // const video = document.getElementById('video');
+    // video.requestFullscreen();
+    // console.log(video,'video')
   }
 
   componentWillUnmount () { }
@@ -192,6 +196,7 @@ export default class Index extends Component {
         play:index20,
         key:0,
       });
+
       return;
     }
     this.setState({key:index})
@@ -207,13 +212,15 @@ export default class Index extends Component {
       this.setState({key:0,play:index13})
     }
   };
+
+
   render () {
     const {key,play,name} =this.state;
     return (
-      <View className={style.contain}>
+      <View className={style.contain}  >
         {key===0&&
           <View>
-            <Video src={play} direction={-90} autoplay showCenterPlayBtn={true}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
+            <Video id='video' src={play} muted direction={-90} autoplay showCenterPlayBtn={false}  onWaiting={{fullScreen:true}}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
             </Video>
           </View>
         }
@@ -273,7 +280,7 @@ export default class Index extends Component {
         <View>
           <Image src={index12End} className={style.image} />
           <Input className={style.input} onInput={this.handleInput} />
-          <view style={{position:'absolute',left:0,right:0,margin:'0 auto',bottom:100,width:100}}>
+          <view style={{position:'absolute',right:'-10%',bottom:100,width:100}}>
             <Button type='primary' size='mini' className={style.comfirm} onClick={this.handleComfirm}>确认</Button>
           </view>
         </View>

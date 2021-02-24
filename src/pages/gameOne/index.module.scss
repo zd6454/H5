@@ -1,0 +1,190 @@
+.contain{
+  width:300vh;
+  height:100vw;
+  transform:none;
+  :global{
+    .taro-video {
+      height: 100vw;
+      width:100vh;
+    }
+    .taro-video-bar{
+      height:0;
+    }
+  }
+}
+.contain2{
+  width:100vh;
+  height:100vw;
+  :global{
+    .taro-video {
+      height: 100vw;
+      width:100vh;
+    }
+    .taro-video-bar{
+      height:0;
+    }
+  }
+}
+
+
+.image{
+  width:300vh;
+  height:100vw;
+  //animation: playImage 2s  ease-in-out;
+}
+.image2{
+  width:100vh;
+  height:100vw;
+}
+.listSet{
+  width:300vh;
+  height:100vw;
+  transform:translateX(0px);
+}
+.list{
+  position: fixed;
+  z-index: 9;
+  width:200px;
+  height:300px;
+}
+.list1{
+  position: absolute;
+  width:150px;
+  height:150px;
+  top:5%;
+  left:90px;
+}
+.list2{
+  position: absolute;
+  width:150px;
+  height:150px;
+  top:30%;
+  left:90px;
+}
+.list3{
+  position: absolute;
+  width:150px;
+  height:150px;
+  top:60%;
+  left:90px;
+}
+.listExpand{
+  position: absolute;
+  width:500px;
+  height:600px;
+  bottom:10%;
+}
+.piss{
+  position: absolute;
+  left:400px;
+  top:0;
+  width:250px;
+  height:250px;
+}
+.needle{
+  position:absolute;
+  width:50px;
+  height:55px;
+  left:57%;
+  bottom:31.9%;
+}
+.boll{
+  position:absolute;
+  width:150px;
+  height:100px;
+  left:73%;
+  bottom:60.9%;
+}
+.name{
+  position: absolute;
+  z-index: 99;
+  bottom:22%;
+  left:20%;
+  font-size: 40px;
+  font-family: "LiSu",SansSerif;
+}
+.clickImage9{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:0;
+  right: -60%;
+}
+.meat{
+  position:absolute;
+  width:400px;
+  height:150px;
+  z-index: 99;
+  left:2px;
+  top:25%;
+}
+.dao{
+  position:absolute;
+  width:100px;
+  height:100px;
+  z-index: 99;
+  left:1.5%;
+  top:0;
+}
+.bucket{
+  position:absolute;
+  width:100px;
+  height:150px;
+  z-index: 99;
+  left:28%;
+  bottom:20%;
+}
+.top1{
+  position:absolute;
+  width:600px;
+  height:100px;
+  z-index: 99;
+  left:20%;
+  top:2%;
+}
+.top2{
+  position:absolute;
+  width:600px;
+  height:100px;
+  z-index: 99;
+  left:20%;
+  top:20%;
+}
+.line{
+  position:absolute;
+  width:200px;
+  height:120px;
+  z-index: 99;
+  left:50%;
+  bottom:18%;
+}
+.book{
+  position:absolute;
+  width:200px;
+  height:160px;
+  z-index: 99;
+  left:60%;
+  top:20%;
+}
+.knight{
+  position:absolute;
+  width:150px;
+  height:160px;
+  z-index: 99;
+  left:78%;
+  top:19%;
+}
+.fruit{
+  position:absolute;
+  width:300px;
+  height:300px;
+  z-index: 99;
+  right:1%;
+  bottom:19%;
+}
+.nodeImage{
+  position:fixed;
+  width:100vh;
+  height:30%;
+  bottom:0;
+}

@@ -1,8 +1,10 @@
 .contain{
-  height: 100vh;
+  width:100vh;
+  height:100vw;
   :global{
     .taro-video {
-      height: 100vh;
+      height: 100vw;
+      width:100vh;
     }
     .taro-video-bar{
       height:0;
@@ -12,35 +14,33 @@
 .imageRed{
   position: fixed;
   z-index: 3;
-  width:700px;
-  height:450px;
-  bottom: 0;
-  left: 0;
+  width:200px;
+  height:80%;
+  bottom:0;
+  left: 20%;
   cursor: pointer;
 }
 .imageYellow{
   position: fixed;
   z-index: 3;
-  width:700px;
-  height:450px;
-  bottom: 0;
-  right: 0;
+  width:200px;
+  height:80%;
+  bottom:0;
+  right: -61%;
   cursor: pointer;
 }
 .imageBlue{
   position: fixed;
   z-index: 3;
-  width:700px;
-  height:450px;
-  bottom: 0;
-  right: 0;
-  left:0;
-  margin: 0 auto;
+  width:200px;
+  height:80%;
+  bottom:0;
+  right: -35%;
   cursor: pointer;
 }
 .image{
-  width:100vw;
-  height:100vh;
+  width:100vh;
+  height:100vw;
   //animation: playImage 2s  ease-in-out;
 }
 @keyframes playImage {
@@ -74,5 +74,40 @@
   width: 150px;
   height: 200px;
   bottom:0;
-  right: 0;
+  right: -60%;
+}
+.name3{
+  position: absolute;
+  bottom:22%;
+  left:20%;
+  font-size: 40px;
+  font-family: "LiSu",SansSerif;
+}
+.clickImage13{
+  position: fixed;
+  width: 250px;
+  height: 300px;
+  bottom:15%;
+  right: -48%;
+}
+.clickImage14{
+  position: fixed;
+  width: 250px;
+  height: 300px;
+  top:0;
+  right: -30%;
+}
+.clickImage15{
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top:30%;
+  right: -30%;
+}
+.clickImage16{
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top:0;
+  right: -60%;
 }
