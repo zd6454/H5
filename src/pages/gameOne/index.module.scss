@@ -188,3 +188,49 @@
   height:30%;
   bottom:0;
 }
+.minList1{
+  position: absolute;
+  width:50px;
+  height:50px;
+  top:13%;
+  left:50px;
+  z-index: 10;
+}
+.minList2{
+  position: absolute;
+  width:50px;
+  height:50px;
+  top:35%;
+  left:50px;
+  z-index: 10;
+}
+.minList3{
+  position: absolute;
+  width:50px;
+  height:50px;
+  top:50%;
+  left:50px;
+  z-index: 10;
+}
+
+.cutNeedle{
+  position: absolute;
+  width:400px;
+  height:200px;
+  top:0;
+  left:0;
+}
+.cutPiss{
+  position: absolute;
+  width:200px;
+  height:250px;
+  top:40%;
+  left:10%;
+}
+.cutBoll{
+  position: absolute;
+  width:200px;
+  height:400px;
+  bottom:20%;
+  right:-55%;
+}

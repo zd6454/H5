@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { View,Video,Image,Input,Button  } from '@tarojs/components'
 import style  from'./index.module.scss'
 import indexOne from '../../datas/冬奥会1.mp4';
@@ -36,32 +37,80 @@ import index21 from '../../datas/冬奥会21.gif'
 import index22 from '../../datas/冬奥会22.jpg'
 import index22End from '../../datas/冬奥会22结束界面.jpg'
 import Zdmarket from '../market';
+import ZdSchool from '../school';
 
+//音频文件
+import music1 from '../../music/1开始/穿越后冰雪树开的场景(和主题一段话展示一起).wav';
+import music2 from '../../music/1开始/穿越后遇见许慎的场景.mp3';
+import musicBoll from  '../../music/1开始/音效/1球撞到头.wav';
+import musicWake from '../../music/1开始/音效/2被砸后头晕.mp3';
+import musicDoor from '../../music/1开始/音效/3点击门切换音效.wav';
+import musicComfirm from '../../music/确认、我愿意等按钮.mp3';
 
+const musicItem = Taro.createInnerAudioContext();
 
 export default class Index extends Component {
   state={
-    key:23,
+    key:0,
     play:indexOne,
     name:'123',
+    musicTimes:0,
   };
 
 
   componentWillMount () {
 
-  }
+  };
+
 
   componentDidMount () {
+    this.autoPlay();
+    // document.getElementById('video').play();
     // const video = document.getElementById('video');
     // video.requestFullscreen();
     // console.log(video,'video')
   }
 
+
   componentWillUnmount () { }
 
+ componentDidUpdate(prevProps, prevState, snapshot) {
+   if(this.state.key===0){
+     this.autoPlay();
+   }
+ }
+
+  autoPlay=()=>{
+    Taro.createVideoContext('video').play();
+  };
   componentDidShow () { }
 
   componentDidHide () { }
+
+  playMusic=(isLoop,music)=>{
+    musicItem.loop=isLoop;
+    musicItem.autoplay=true;
+    musicItem.src=music;
+    // musicItem.play();
+    musicItem.onError((res)=>{
+      console.log(res,'res')
+    })
+  };
+
+  listerTime=(event)=>{
+    const {currentTime} = event.detail;
+    const {musicTimes} =this.state;
+    console.log(currentTime,'value',musicTimes);
+    if(musicTimes===33){
+      this.playMusic(false,musicBoll);
+    }else if(musicTimes===35){
+      this.playMusic(false,musicWake);
+    }
+    // else if(musicTimes===43){
+    //   this.playMusic(false,music1);
+    // }
+   this.setState({musicTimes:musicTimes+1})
+  };
 
   handleSwitch=()=>{
     const {play}=this.state;
@@ -128,19 +177,25 @@ export default class Index extends Component {
         key:20
       })
     }
+    this.autoPlay();
   };
   handleToNumber=(index)=>{
+    musicItem.onPause();
     if(index===2){
+      this.playMusic(false,musicComfirm);
       this.setState({
         play:indexTwo,
         key:0
       });
+      this.playMusic(false,music1);
       return;
     }else if(index === 3){
+      this.playMusic(false,musicComfirm);
       this.setState({
         play:indexThree,
         key:0
       });
+      this.playMusic(false,music1);
       return;
     }else if(index === 6){
       this.setState({
@@ -220,7 +275,7 @@ export default class Index extends Component {
       <View className={style.contain}  >
         {key===0&&
           <View>
-            <Video id='video' src={play} muted direction={-90} autoplay showCenterPlayBtn={false}  onWaiting={{fullScreen:true}}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
+            <Video id='video' muted src={play} onTimeUpdate={this.listerTime}  direction={-90} autoplay showCenterPlayBtn={false}  onWaiting={{fullScreen:true}}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
             </Video>
           </View>
         }
@@ -352,7 +407,10 @@ export default class Index extends Component {
         </View>
         }
         {key===23&&
-         <Zdmarket name={name} />
+         <Zdmarket name={name} toSchool={(index)=>{this.setState({key:index})}} />
+        }
+        {key===24&&
+        <ZdSchool name={name}  />
         }
       </View>
     )

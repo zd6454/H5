@@ -39,6 +39,22 @@ import index19End from '../../datas/冬奥会集市19结束界面.jpg';
 import index20 from '../../datas/冬奥会集市20.mp4';
 import index20End from '../../datas/冬奥会集市20结束界面.jpg';
 import ZdGameOne from '../gameOne';
+import index21 from '../../datas/冬奥会集市21.mp4';
+import index21End from '../../datas/冬奥会集市21结束界面.jpg'
+import index22 from '../../datas/冬奥会集市22.mp4';
+import index22End from '../../datas/冬奥会集市22结束界面.jpg';
+import index23 from '../../datas/冬奥会集市23.mp4';
+import index23End from '../../datas/冬奥会集市23结束界面.jpg'
+import index24 from '../../datas/冬奥会集市24.mp4';
+import index24End from '../../datas/冬奥会集市24结束界面.jpg';
+import index25 from '../../datas/冬奥会集市25地图.png';
+import index25Next from '../../datas/冬奥会集市25对话框.png';
+import index25Done from '../../datas/冬奥会集市25已完成.png';
+import map from '../../datas/地图.png';
+import mapExtend from '../../datas/地图展开.png';
+import book from '../../datas/手册.png';
+import bookExtend from '../../datas/手册展开.png';
+import Taro from "@tarojs/taro";
 
 
 class market extends Component{
@@ -46,7 +62,7 @@ class market extends Component{
     super(props);
     this.state={
          play:index1,
-         key:18,
+         key:0,
          name:'123',
          redX:{
            start:0,
@@ -60,12 +76,22 @@ class market extends Component{
            start:0,
            x:0
          },
+         isNext:false,
+         isMap:false,
+         isBook:false,
     }
   }
+
+
   componentDidMount () {
     this.setState({name:this.props.name})
+    Taro.createVideoContext('video').play();
   }
-
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if(this.state.key===0){
+      Taro.createVideoContext('video').play();
+    }
+  }
   handleSwitch=()=> {
     const {play} = this.state;
     if (play === index1) {
@@ -127,6 +153,22 @@ class market extends Component{
     }else if(play === index20){
       this.setState({
         key:20
+      })
+    }else if(play === index21){
+      this.setState({
+        key:21
+      })
+    }else if(play === index22){
+      this.setState({
+        key:22
+      })
+    }else if(play === index23){
+      this.setState({
+        key:23
+      })
+    }else if(play === index24){
+      this.setState({
+        key:24
       })
     }
   };
@@ -215,6 +257,30 @@ class market extends Component{
         key: 0
       })
       return;
+    }else if(index === 21) {
+      this.setState({
+        play: index21,
+        key: 0
+      })
+      return;
+    }else if(index === 22) {
+      this.setState({
+        play: index22,
+        key: 0
+      })
+      return;
+    }else if(index === 23) {
+      this.setState({
+        play: index23,
+        key: 0
+      })
+      return;
+    }else if(index === 24) {
+      this.setState({
+        play: index24,
+        key: 0
+      })
+      return;
     }
     this.setState({key:index})
   };
@@ -244,13 +310,18 @@ class market extends Component{
     }
     this.setState({redX,blueX,yellowX});
   };
+
+  switchToNext=()=>{
+    this.setState({key:19})
+  };
+
   render(){
-    const {key,play,name,redX,blueX,yellowX} =this.state;
+    const {key,play,name,redX,blueX,yellowX,isNext,isMap,isBook} =this.state;
     return(
       <View className={style.contain} >
         {key===0&&
         <View>
-          <Video src={play} direction={-90} autoplay showCenterPlayBtn={false}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
+          <Video src={play} id='video' direction={-90} muted autoplay showCenterPlayBtn={false}    enableAutoRotation controls={false} onEnded={this.handleSwitch}>
           </Video>
         </View>
         }
@@ -375,7 +446,7 @@ class market extends Component{
         </View>
         }
         {key === 18 &&
-          <ZdGameOne name={name} />
+          <ZdGameOne name={name} returnBack={this.switchToNext} />
         }
         {key === 19 &&
         <View>
@@ -387,9 +458,46 @@ class market extends Component{
         {key === 20 &&
         <View>
           <Image src={index20End} className={style.image} />
-          <View className={style.clickImage9} onClick={() => this.handleToNumber(20)} />
+          <View className={style.clickImage9} onClick={() => this.handleToNumber(21)} />
         </View>
         }
+        {key === 21 &&
+        <View>
+          <Image src={index21End} className={style.image} onClick={() => this.handleToNumber(22)} />
+        </View>
+        }
+        {key === 22 &&
+        <View>
+          <Image src={index22End} className={style.image} />
+          <View className={style.clickImage22} onClick={() => this.handleToNumber(23)} />
+        </View>
+        }
+        {key === 23 &&
+        <View>
+          <Image src={index23End} className={style.image} />
+          <View className={style.name3}>{name}</View>
+          <View className={style.clickImage9} onClick={() => this.handleToNumber(24)} />
+        </View>
+        }
+        {key === 24 &&
+        <View>
+          <Image src={index24End} className={style.image} onClick={() => this.handleToNumber(25)}  />
+        </View>
+        }
+        {key === 25 &&
+        <View>
+          <Image src={index25} className={style.image} />
+          {!isNext&&
+            <Image src={index25Next} className={style.image25} onClick={()=>{this.setState({isNext:true})}} />
+          }
+          <Image src={index25Done} className={style.image25Done} />
+          <View  className={style.school} onClick={()=>{this.props.toSchool(24)}} />
+        </View>
+        }
+        <View>
+          <Image src={isMap?mapExtend:map} className={isMap?style.Extend:style.map} onClick={()=>{this.setState({isMap:!isMap})}} />
+          <Image src={isBook?bookExtend:book} className={isBook?style.Extend:style.book} onClick={()=>{this.setState({isBook:!isBook})}} />
+        </View>
         </View>
     )
   }

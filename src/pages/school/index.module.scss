@@ -1,0 +1,48 @@
+.contain{
+  width:100vh;
+  height:100vw;
+  :global{
+    .taro-video {
+      height: 100vw;
+      width:100vh;
+    }
+    .taro-video-bar{
+      height:0;
+    }
+  }
+}
+.image{
+  width:100vh;
+  height:100vw;
+  //animation: playImage 2s  ease-in-out;
+}
+.name3{
+  position: absolute;
+  bottom:22%;
+  left:20%;
+  font-size: 40px;
+  font-family: "LiSu",SansSerif;
+}
+.clickImage{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  top: 120px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.clickImage2{
+  position: fixed;
+  width: 300px;
+  height: 700px;
+  bottom:0;
+  right: -55%;
+}
+.clickImage9{
+  position: fixed;
+  width: 150px;
+  height: 200px;
+  bottom:0;
+  right: -60%;
+}

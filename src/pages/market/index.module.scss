@@ -14,42 +14,87 @@
 .imageRed{
   position: fixed;
   z-index: 3;
-  width:200px;
+  width:250px;
   height:80%;
   bottom:0;
   left: 20%;
   cursor: pointer;
+  animation: playImage 2s  ease-in-out;
 }
 .imageYellow{
   position: fixed;
   z-index: 3;
-  width:200px;
+  width:250px;
   height:80%;
   bottom:0;
   right: -61%;
   cursor: pointer;
+  animation: playImage1 2s  ease-in-out;
 }
 .imageBlue{
   position: fixed;
   z-index: 3;
-  width:200px;
+  width:250px;
   height:80%;
   bottom:0;
   right: -35%;
   cursor: pointer;
+  animation: playImage2 2s  ease-in-out;
 }
 .image{
   width:100vh;
   height:100vw;
-  //animation: playImage 2s  ease-in-out;
+
 }
 @keyframes playImage {
   0%{
-    transform: scale(2, 2);
+    transform: translate(0px);
+  }
+  25%{
+    transform: translate(120px);
+  }
+  50%{
+    transform: translate(0px);
+  }
+  75%{
+    transform: translate(-120px);
   }
   100%{
-    transform: scale(1, 1);
-    transition:transform 2s ease-in-out;
+    transform: translate(0px);
+  }
+}
+@keyframes playImage1 {
+  0%{
+    transform: translate(50px);
+  }
+  25%{
+    transform: translate(0px);
+  }
+  50%{
+    transform: translate(-50px);
+  }
+  75%{
+    transform: translate(0px);
+  }
+  100%{
+    transform: translate(0px);
+  }
+}
+@keyframes playImage2 {
+  0%{
+    transform: translate(-12px);
+  }
+  25%{
+    transform: translate(0px);
+  }
+  50%{
+    transform: translate(12px);
+  }
+  75%{
+    transform: translate(0px);
+  }
+  100%{
+    transform: translate(0px);
   }
 }
 .clickImage{
@@ -110,4 +155,55 @@
   height: 200px;
   top:0;
   right: -60%;
+}
+.clickImage22{
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top:0;
+  right: -60%;
+}
+.image25{
+  position: absolute;
+  z-index: 10;
+  width:100vh;
+  height:100vw;
+  bottom:0;
+  left:0;
+}
+.image25Done{
+  position: absolute;
+  width:100vh;
+  height:100vw;
+  bottom:0;
+  left:0;
+}
+.school{
+  position: absolute;
+  z-index: 10;
+  height:250px;
+  width:500px;
+  left:0;
+  top:0;
+}
+.map{
+  position: absolute;
+  left:0;
+  top:300px;
+  height:200px;
+  width:100px;
+ }
+.book{
+  position: absolute;
+  left:0;
+  top:10px;
+  height:200px;
+  width:100px;
+}
+.Extend{
+  position: absolute;
+  top:0;
+  left:0;
+  width:170%;
+  height:100%;
 }
